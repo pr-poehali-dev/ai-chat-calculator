@@ -4,11 +4,13 @@ import ChatSection from "@/components/ChatSection";
 import DiarySection from "@/components/DiarySection";
 import CalculatorSection from "@/components/CalculatorSection";
 import SettingsSection from "@/components/SettingsSection";
+import MessengerSection from "@/components/MessengerSection";
 
-type Tab = "chat" | "diary" | "calc" | "settings";
+type Tab = "chat" | "messenger" | "diary" | "calc" | "settings";
 
 const TABS: { id: Tab; icon: string; label: string }[] = [
-  { id: "chat", icon: "MessageCircle", label: "Чат" },
+  { id: "chat", icon: "MessageCircle", label: "Чат с ИИ" },
+  { id: "messenger", icon: "MessagesSquare", label: "Сообщения" },
   { id: "diary", icon: "BookOpen", label: "Дневник" },
   { id: "calc", icon: "Calculator", label: "Калькулятор" },
   { id: "settings", icon: "Settings", label: "Настройки" },
@@ -114,6 +116,11 @@ export default function Index() {
           {tab === "chat" && (
             <div className="h-full animate-fade-in">
               <ChatSection />
+            </div>
+          )}
+          {tab === "messenger" && (
+            <div className="h-full animate-fade-in relative">
+              <MessengerSection />
             </div>
           )}
           {tab === "diary" && (
